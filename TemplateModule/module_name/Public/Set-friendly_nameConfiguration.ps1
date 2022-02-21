@@ -28,7 +28,10 @@ function Set-{{ friendly_name }}Configuration {
     $MyInvocation.BoundParameters.GetEnumerator() | ForEach-Object { $InitializationLog = $InitializationLog + " -$($_.Key) $($_.Value)"}
     Write-Log -Message $InitializationLog -Level Verbose
 
-   
+    # Serialize Tokens as SecureString
+    if ($Token) {
+        $TokenSecure = Protect-{{ friendly_name }}Token -String $Token
+    }
 
    
     $Configuration = Read-{{ friendly_name }}Configuration -Path $Script:{{ module_name }}.ConfPath
@@ -47,9 +50,9 @@ function Set-{{ friendly_name }}Configuration {
 
     if ($Token) {
         if (-not $Configuration.Token) {
-            Add-Member -InputObject $Configuration -MemberType NoteProperty -Name Token -Value $Token
+            Add-Member -InputObject $Configuration -MemberType NoteProperty -Name Token -Value $TokenSecure
         } else {
-            $Configuration.Token = $Token
+            $Configuration.Token = $TokenSecure
         }
     }
         

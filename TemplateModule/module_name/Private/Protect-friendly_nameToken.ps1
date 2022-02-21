@@ -1,4 +1,4 @@
-function Protect-UrlscanToken {
+function Protect-{{ friendly_name }}Token {
     [CmdletBinding()]
     Param(
         [Parameter(Mandatory=$True,ParameterSetName="String")]

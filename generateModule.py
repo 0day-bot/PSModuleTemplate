@@ -24,4 +24,6 @@ templates = getTemplates('TemplateModule', '1')
 
 for template in templates:
      outputText = renderTemplate(template)
-     print(outputText)
+     with open(template, 'w') as outputFile:
+         outputFile.write(outputText)
+     # print(outputText)

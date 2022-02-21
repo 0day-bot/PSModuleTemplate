@@ -1,7 +1,8 @@
 import jinja2
 
 data = {
-    "module_name": "MyModule"
+    "module_name": "MyModule",
+    "friendly_name": "MyMod"
 }
 
 def renderTemplate(TEMPLATE_FILE):

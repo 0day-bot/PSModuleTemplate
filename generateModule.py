@@ -25,14 +25,14 @@ def renameModuleFiles(templateFilePath):
         return templateFilePath.replace('module_name', data['module_name'])
     elif 'friendly_name' in templateFilePath:
         return templateFilePath.replace('friendly_name', data['friendly_name'])
-    else
+    else:
         return templateFilePath
 
 templates = getTemplates('TemplateModule', '1')
 
 for template in templates:
-     outputText = renderTemplate(template)
-     with open(template, 'w') as outputFile:
-         outputFile.write(outputText)
+    outputText = renderTemplate(template)
+    with open(template, 'w') as outputFile:
+        outputFile.write(outputText)
     os.rename(template, renameModuleFiles(template))
      # print(outputText)

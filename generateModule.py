@@ -1,5 +1,6 @@
 import jinja2
 import os
+import pathlib
 
 data = {
     "module_name": "MyModule",
@@ -36,7 +37,8 @@ os.rename('./TemplateModule/module_name', f'./TemplateModule/{data["module_name"
 templates = getTemplates('TemplateModule', '1')
 
 for template in templates:
-    outputText = renderTemplate(template)
+    p = pathlib.PureWindowsPath(template)
+    outputText = renderTemplate(p.as_posix())
     with open(template, 'w') as outputFile:
         outputFile.write(outputText)
     os.rename(template, renameModuleFiles(template))

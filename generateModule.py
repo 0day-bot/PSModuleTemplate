@@ -28,6 +28,11 @@ def renameModuleFiles(templateFilePath):
     else:
         return templateFilePath
 
+
+# main
+
+os.rename('./TemplateModule/module_name', f'./TemplateModule/{data["module_name"]}')
+
 templates = getTemplates('TemplateModule', '1')
 
 for template in templates:

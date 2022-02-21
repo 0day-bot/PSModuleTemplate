@@ -1,4 +1,5 @@
 import jinja2
+import os
 
 data = {
     "module_name": "MyModule",
@@ -6,16 +7,21 @@ data = {
 }
 
 def renderTemplate(TEMPLATE_FILE):
-    templateLoader = jinja2.FileSystemLoader(searchpath="./")
+    templateLoader = jinja2.FileSystemLoader(searchpath="./TemplateModule/")
     templateEnv = jinja2.Environment(loader=templateLoader)
     template = templateEnv.get_template(TEMPLATE_FILE)
     return template.render(data)
 
+def getTemplates(filepath, filetype):
+    paths = []
+    for root, dirs, files in os.walk(filepath):
+        for file in files:
+            if file.lower().endswith(filetype.lower()):
+                paths.append(os.path.join(root, file))
+    return(paths)
 
-TEMPLATE_FILE = "Install-Module.ps1"
-outputText = renderTemplate(TEMPLATE_FILE)
+templates = getTemplates('TemplateModule', '1')
 
-print(outputText)
-
-# maybe i can functionize the above and loop through module files to render?
-# need to research more jinja2 capabilities.
+for template in templates:
+     outputText = renderTemplate(template)
+     print(outputText)

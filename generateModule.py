@@ -7,7 +7,7 @@ data = {
 }
 
 def renderTemplate(TEMPLATE_FILE):
-    templateLoader = jinja2.FileSystemLoader(searchpath="./TemplateModule/")
+    templateLoader = jinja2.FileSystemLoader(searchpath="./")
     templateEnv = jinja2.Environment(loader=templateLoader)
     template = templateEnv.get_template(TEMPLATE_FILE)
     return template.render(data)

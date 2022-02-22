@@ -1,5 +1,5 @@
 # PSModuleTemplate
-Template for building and generating robust powershell modules.
+Template for building and generating robust powershell modules. A powershell module generator for effiency and those new to writing PS modules to provide a jumping off point for all types of powershell use cases. 
 
 
 ## Installation 

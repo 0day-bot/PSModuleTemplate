@@ -17,7 +17,7 @@ or simply `pip install jinja2` as that and it's dependencies are all that's need
 ```
 The above command will generate a module named WidgetCorporation and provide a skeleton for the module with functions named using the fName (friendly name) provided. The command will overwrite file names in the TemplateModule directory so if multiple modules are needed you will need to clone the repo multiple times. 
 
-[[/Images/resultingFoldersAfterTemplate.PNG|ALT TEXT]]
+[[/Images/resultingFoldersAfterTemplate.PNG]]
 
 You can then navigate to the TemplateModule directory and run the `Install-Module.ps1` script provided. You can use this in conjunction with `Uninstall-Module.ps1` to make changes to the files in the directory and add your own functionality to the module. 
 
